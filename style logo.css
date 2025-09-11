@@ -1,0 +1,27 @@
+/* Asegura que header sea contenedor posicionado (si ya lo tienes, está bien) */
+header {
+  position: sticky; /* ya lo tenías; mantener para que top:0 funcione */
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo centrado en el header */
+.header-center-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 64px; /* ajustar según prefieras */
+  width: auto;
+  pointer-events: none;
+  z-index: 1001;
+}
+
+/* Responsive: ocultar o reducir en pantallas pequeñas */
+@media (max-width: 768px) {
+  .header-center-logo {
+    max-height: 44px;
+    /* o usar display:none si prefieres ocultarlo en móvil */
+    /* display: none; */
+  }
+}

@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* Reset */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'montserrat', sans-serif}
+body{line-height:1.6;color:#333;background:#fff}
+
+/* Header */
+header {
+  background: #003366 url("img/banner menu.png") no-repeat center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-start; /* ahora los elementos quedan a la izquierda */
+  align-items: center;
+  padding: 3px 30px;
+  color: #fff;
+  transition: background .25s ease, padding .2s ease;
+}
+
+header .logo{font-size:1.5rem;font-weight:700}
+header nav ul{display:flex;list-style:none}
+header nav ul li{margin-left:20px}
+header nav ul li a{color:#fff;text-decoration:none;position:relative;transition:color .3s ease}
+header nav ul li a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:#f0c040;transition:width .3s ease}
+header nav ul li a:hover{color:#f0c040}
+header nav ul li a:hover::after{width:100%}
+.menu-toggle{display:none;font-size:1.8rem;cursor:pointer;transition:transform .3s ease}
+.menu-toggle.active{transform:rotate(90deg)}
+
+/* Empuja el nav hacia la derecha */
+header .nav {
+  margin-left: auto;
+}
+
+/* Separación entre logo-imagen y texto */
+.header-left-logo {
+  max-height: 64px;
+  width: auto;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+/* Pequeño margen para el texto/logo textual */
+header .logo {
+  margin-left: 6px;
+}
+
+/* Logo a la izquierda (antes del título) */
+.header-left-logo{
+  max-height:64px;
+  width:auto;
+  display:inline-block;
+}
+
+/* Hero */
+.hero{background:url(./img/banner.jpg) no-repeat center center/cover;height:80vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#ffffff;padding:20px}
+.hero h1{font-size:3.0rem;margin-bottom:10px;transition:transform .4s ease,color .3s ease;transform-origin:center;animation:heroZoom 8s ease-in-out infinite; font-family:'montserrat', sans-serif}
+.hero h1:hover,.hero h1:focus{transform:scale(1.08);outline:none}
+@keyframes heroZoom{0%{transform:scale(1)}50%{transform:scale(1.04)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.hero h1{animation:none;transition:transform .25s ease,color .3s ease}}
+/* Agrandar subtítulo en el hero */
+.hero p {
+  font-size: 1.50rem; /* ajusta a tu gusto (ej. 1.35rem para más grande) */
+  line-height: 1.4;
+  max-width: 900px;
+  margin-top: 12px;
+  padding: 0 8px;
+}
+
+/* Ajuste en móvil */
+@media (max-width:700px) {
+  .hero p { font-size: 1.50rem; padding: 0 14px; }
+}
+
+/* Propiedades (index) */
+.propiedades{padding:50px 20px;text-align:center}
+.propiedades h2{margin-bottom:30px;font-size:2rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:#fff;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,.1);padding:15px;transition:transform .3s}
+.card:hover{transform:translateY(-10px)}
+.card img{width:100%;border-radius:10px}
+.card h3{margin:15px 0 10px}
+.card p{color:#555;margin-bottom:12px}
+.card button{background:#003366;color:#fff;border:none;padding:10px 15px;border-radius:5px;cursor:pointer;transition:background .3s}
+.card button:hover{background:#f0c040;color:#000}
+
+/* Nosotros */
+.nosotros{background:#f3f2f2;padding:50px 70px;text-align:center}
+.nosotros h2{margin-bottom:20px}
+
+/* Contacto */
+.contacto{padding:50px 20px;text-align:center}
+.contacto form{max-width:500px;margin:auto;display:flex;flex-direction:column}
+.contacto input,.contacto textarea{margin-bottom:15px;padding:10px;border-radius:5px;border:1px solid #ccc}
+.contacto button{background:#003366;color:#fff;border:none;padding:12px;border-radius:5px;cursor:pointer;transition:background .3s}
+.contacto button:hover{background:#f0c040;color:#000}
+
+/* Footer */
+footer{background:#003366; /* si prefieres fondo blanco; cambia a #003366 si quieres oscuro */color:#114b7a;padding:20px;text-align:center}
+footer .social a{position:relative;display:inline-block;color:#fff;font-size:1.5rem;margin:0 12px;transition:color .3s ease}
+footer .social a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:#f0c040;transition:width .3s ease}
+footer .social a:hover{color:#f0c040}
+footer .social a:hover::after{width:100%}
+
+/* Footer: contacto (tel / email / rol) */
+.footer-contact{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  margin-bottom:10px;
+  font-weight:600;
+}
+
+/* Enlaces (tel / mail) */
+.footer-contact a{
+  color:#ffffff; /* azul legible */
+  text-decoration:none;
+  font-size:1.05rem;
+}
+
+/* Estilos por elemento (puedes ajustar tamaños) */
+.footer-phone a,
+.footer-email a{
+  display:inline-block;
+  padding:2px 4px;
+}
+
+.footer-role{
+  color:#ffffff;
+  font-weight:700;
+  letter-spacing:0.6px;
+  text-transform:uppercase;
+  font-size:0.95rem;
+}
+
+/* Copyright más pequeño y sutil */
+footer > p{
+  margin-top:8px;
+  font-size:0.9rem;
+  color:#ffffff;
+}
+
+/* Layout en pantallas grandes: mostrar en una línea */
+@media (min-width:700px){
+  .footer-contact{
+    flex-direction:row;
+    justify-content:center;
+    gap:20px;
+  }
+}
+
+/* Iconos sociales flotantes */
+.social-floating{position:fixed;right:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:9999;pointer-events:auto}
+.social-floating a{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:#fff;color:#111;border-radius:50%;box-shadow:0 6px 14px rgba(18,18,18,.12);transition:transform .18s ease,background .18s ease,color .18s ease;text-decoration:none;font-size:20px;position:relative}
+.social-floating a[aria-label="WhatsApp"]:hover{background:#25D366;color:#fff;transform:translateX(-8px)}
+.social-floating a[aria-label="Facebook"]:hover{background:#1877F2;color:#fff;transform:translateX(-8px)}
+.social-floating a[aria-label="Instagram"]:hover{background:linear-gradient(45deg,#feda75,#d62976,#962fbf);color:#fff;transform:translateX(-8px)}
+.social-floating a[aria-label="TikTok"]:hover{background:#010101;color:#fff;transform:translateX(-8px)}
+.social-floating a:focus{outline:3px solid rgba(0,0,0,.12);outline-offset:3px;transform:translateX(-8px)}
+
+/* Tooltip */
+.social-floating a[aria-label]{position:relative}
+.social-floating a[aria-label]:hover::after,.social-floating a[aria-label]:focus::after{content:attr(aria-label);position:absolute;right:56px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.75);color:#fff;padding:6px 10px;border-radius:6px;white-space:nowrap;font-size:13px;box-shadow:0 6px 18px rgba(0,0,0,.2);pointer-events:none;opacity:1}
+
+/* Página de detalle */
+.property{padding:20px;max-width:1100px;margin:0 auto 60px}
+.property #property-detail h1{font-size:2rem;margin-bottom:6px;color:#003366}
+.muted{color:#666;margin-bottom:12px}
+.gallery-and-info{display:grid;grid-template-columns:1fr 380px;gap:20px;align-items:start}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.gallery img{width:100%;height:160px;object-fit:cover;border-radius:8px;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+.gallery img:hover{transform:scale(1.03);box-shadow:0 8px 20px rgba(0,0,0,.12)}
+.info h2,.info h3{color:#003366;margin-top:0}
+.map-wrapper{margin-top:8px}
+.map-embed{width:100%;height:220px;border:0;border-radius:8px}
+
+/* Botones reutilizables */
+.btn{display:inline-block;background:#003366;color:#fff;padding:10px 14px;border-radius:6px;text-decoration:none;transition:background .2s,transform .12s}
+.btn:hover{background:#f0c040;color:#000;transform:translateY(-2px)}
+
+/* Lightbox / visor */
+.lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.88);z-index:10050;padding:20px}
+.lightbox.open{display:flex}
+.lb-content{max-width:1100px;max-height:calc(100vh - 160px);display:flex;align-items:center;justify-content:center;position:relative;margin:0 60px}
+.lb-content img{max-width:100%;max-height:100%;border-radius:6px;box-shadow:0 10px 40px rgba(0,0,0,.6);object-fit:contain}
+
+/* Controles */
+.lb-close,.lb-prev,.lb-next{position:fixed;background:transparent;border:0;color:#fff;cursor:pointer;z-index:10060;display:flex;align-items:center;justify-content:center}
+.lb-close{right:20px;top:18px;font-size:34px;line-height:1;padding:6px 10px;opacity:.95}
+.lb-prev,.lb-next{top:50%;transform:translateY(-50%);width:56px;height:56px;border-radius:50%;background:rgba(0,0,0,.35);backdrop-filter:blur(3px)}
+.lb-prev{left:22px}
+.lb-next{right:22px}
+.lb-prev i, .lb-next i{font-size:20px;color:#fff}
+
+/* Thumbnails (scrollable) */
+.lb-thumbs{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;display:flex;gap:8px;z-index:10060;padding:6px 10px;background:rgba(0,0,0,.45);border-radius:8px;overflow:auto;max-width:calc(100% - 40px)}
+.lb-thumbs img{width:68px;height:48px;object-fit:cover;border-radius:6px;cursor:pointer;opacity:.7;border:2px solid transparent;transition:transform .12s,opacity .12s}
+.lb-thumbs img.active{opacity:1;transform:scale(1.03);border-color:#f0c040}
+
+/* Quitar puntos de la lista de características en la página de detalle */
+#prop-features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Asegurar que cada elemento no tenga sangría de lista */
+#prop-features li {
+  margin: 6px 0;
+  padding-left: 0;
+}
+
+/* Clic fuera del contenido cierra */
+.lightbox .lb-content::before{content:'';position:absolute;inset:-30px}
+
+/* Teclas - accesible en móviles y escritorio */
+@media (max-width:700px){
+  .lb-prev,.lb-next{width:44px;height:44px}
+  .lb-thumbs img{width:56px;height:40px}
+  .lb-content{margin:0 40px}
+}
+
+/* Responsive */
+@media (max-width:900px){.gallery-and-info{grid-template-columns:1fr}.info{order:2}.gallery{order:1}}
+@media (max-width:768px){header nav ul{display:none}.menu-toggle{display:block}}
+@media (max-width:700px){.social-floating{right:10px;gap:8px}.social-floating a{width:42px;height:42px;font-size:18px}}
+@media (max-width:700px){header .logo{font-size:1.3rem;font-weight:700}}
+@media (max-width:768px){
+  header { padding: 12px 16px; }
+  .hero { padding-top: 72px; }
+  .header-left-logo { max-height: 44px; }
+}
+
+/* Estilos para la sección Requisitos */
+section#requisitos.contacto {
+  background: #ffffff;
+  padding: 50px 70px;
+  text-align: center;
+}
+
+/* Contenido interno centrado pero con ancho controlado */
+.requisitos-content,
+.requisitos {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left; /* conserva la justificación interna si antes la tenías */
+  white-space: pre-wrap;
+}
+/* Ajustes en móvil */
+@media (max-width: 700px) {
+  section#requisitos.contacto {
+    padding: 30px 36px;
+  }
+  .requisitos-content,
+  .requisitos {
+    padding: 0 6px;
+  }
+}

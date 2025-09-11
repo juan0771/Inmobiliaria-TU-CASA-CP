@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Detalle de la propiedad</title>
+  <link rel="shortcut icon" href="img/ico titulo 2.jpeg">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style logo.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header>
+    <!-- logo a la izquierda -->
+    <img src="img/logo banner.png" alt="Logo" class="header-left-logo">
+
+    <div class="logo">Inmobiliaria TU CASA CP 🏠</div>
+
+    <nav class="nav" id="nav-menu">
+      <ul>
+        <li><a href="index.html#inicio">Inicio</a></li>
+        <li><a href="index.html#propiedades">Propiedades</a></li>
+        <li><a href="index.html#nosotros">Nosotros</a></li>
+        <li><a href="index.html#requisitos">Requisitos</a></li>
+      </ul>
+    </nav>
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+  </header>
+
+  <main class="property">
+    <a class="btn" href="index.html" style="margin:16px 0; display:inline-block;">← Volver</a>
+
+    <section id="property-detail">
+      <h1 id="prop-title">Propiedad</h1>
+      <p id="prop-address" class="muted"></p>
+
+      <div class="gallery-and-info">
+        <div class="gallery" id="gallery"></div>
+
+        <aside class="info">
+          <h2>Descripción</h2>
+          <p id="prop-desc"></p>
+            <br>
+            <br>
+          <h3>Características</h3>
+          <ul id="prop-features"></ul>
+            <br>
+          <!-- Opción Dirección: muestra y permite ubicar en el mapa -->
+          <h3>Dirección</h3>
+          <p id="prop-address" class="muted" style="cursor:pointer;" title="Haga clic para ubicar en el mapa"></p>
+          <p><button id="btn-ubicacion" class="btn">Carrera 71A # 53-65</button></p>
+
+          
+          <div class="map-wrapper">
+            <iframe id="map-frame" class="map-embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+          <p style="margin-top:12px;">
+            <a id="contact-wa" class="btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Contactar por WhatsApp</a>
+          </p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox / Visor de imágenes -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" tabindex="-1">
+    <button class="lb-close" aria-label="Cerrar (Esc)">&times;</button>
+    <button class="lb-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+
+    <div class="lb-content" role="dialog" aria-modal="true">
+      <img id="lb-image" src="" alt="">
+    </div>
+
+    <button class="lb-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+
+    <div class="lb-thumbs" id="lb-thumbs" aria-hidden="false"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-contact">
+      <p class="footer-phone"><a href="tel:3142902041"><i class="fas fa-phone"></i> 314 290 2041</a></p>
+      <p class="footer-email"><a href="mailto:tucasacp@gmail.com"><i class="fas fa-envelope"></i> tucasacp@gmail.com</a></p>
+      <p class="footer-role">GESTORES INMOBILIARIOS</p>
+    </div>
+
+    <p>© 2025 Inmobiliaria Tu Casa CP. Todos los derechos reservados.</p>
+
+    <div class="social">
+      <a href="https://wa.me/3142902041" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.facebook.com/tu-pagina" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/tu-perfil" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    </div>
+  </footer>
+  
+  <!-- Iconos sociales flotantes (mantenimiento) -->
+  <div class="social-floating" aria-hidden="false">
+    <a href="https://wa.me/3142902041?text=Hola%20quiero%20más%20info" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    <a href="https://www.facebook.com/tu-pagina" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <i class="fab fa-facebook-f" aria-hidden="true"></i>
+    </a>
+    <a href="https://www.instagram.com/tu-perfil" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <i class="fab fa-instagram" aria-hidden="true"></i>
+    </a>
+    <a href="https://www.tiktok.com/@tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+      <i class="fab fa-tiktok" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
