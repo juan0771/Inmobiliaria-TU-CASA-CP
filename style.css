@@ -76,9 +76,17 @@ header .logo {
 
 /* Propiedades (index) */
 .propiedades{padding:50px 20px;text-align:center}
-.propiedades h2{margin-bottom:30px;font-size:2rem}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.card{background:#fff;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,.1);padding:15px;transition:transform .3s}
+.propiedades h2{margin-bottom:30px;font-size:2rem; padding: 0 20px;}
+.cards{
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; /* Habilita el scroll horizontal */
+  padding: 10px; /* Espacio visual */
+  padding-bottom: 20px; /* Espacio para la barra de scroll */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+}
+.card{background:#fff;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,.1);padding:15px;transition:transform .3s; flex: 0 0 290px; scroll-snap-align: start;}
 .card:hover{transform:translateY(-10px)}
 .card img{width:100%;border-radius:10px}
 .card h3{margin:15px 0 10px}
@@ -86,9 +94,86 @@ header .logo {
 .card button{background:#003366;color:#fff;border:none;padding:10px 15px;border-radius:5px;cursor:pointer;transition:background .3s}
 .card button:hover{background:#f0c040;color:#000}
 
+/* Contenedor para el botón "Ver Todo" */
+.ver-todo-container {
+  margin-top: 30px;
+}
+
 /* Nosotros */
 .nosotros{background:#f3f2f2;padding:50px 70px;text-align:center}
 .nosotros h2{margin-bottom:20px}
+
+/* Nuestro Equipo */
+.team {
+  padding: 50px 0; /* Adjust padding to remove side padding */
+  text-align: center;
+  background: #fff;
+  overflow: hidden; /* Hide overflowing content */
+}
+.team h2 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+  padding: 0 20px; /* Add padding back to the title */
+}
+
+/* Wrapper genérico para carruseles */
+.carousel-wrapper,
+.team-carousel-wrapper { /* .team-carousel-wrapper se mantiene por retrocompatibilidad */
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.team-cards {
+  /* from grid to flex */
+  display: flex;
+  /* add overflow and scroll behavior */
+  overflow-x: auto;
+  gap: 25px;
+  padding: 10px 20px; /* Add some padding for visual spacing */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 20px; /* Espacio para la barra de scroll */
+}
+.team-card {
+  /* from responsive grid item to fixed flex item */
+  flex: 0 0 220px; /* Give cards a fixed base width */
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  transition: transform .3s, box-shadow .3s;
+  scroll-snap-align: start; /* Snap to start of card */
+}
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.12);
+}
+.team-card img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 3px solid #f0c040; cursor: pointer; }
+.team-card h3 { margin-bottom: 5px; font-size: 1.2rem; color: #003366; }
+.team-card p { color: #555; font-size: 0.95rem; }
+
+/* New Carousel Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+.carousel-btn:hover { background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
+.carousel-btn.prev { left: -10px; }
+.carousel-btn.next { right: -10px; }
+.carousel-btn i { font-size: 16px; color: #333; }
 
 /* Contacto */
 .contacto{padding:50px 20px;text-align:center}
@@ -97,8 +182,56 @@ header .logo {
 .contacto button{background:#003366;color:#fff;border:none;padding:12px;border-radius:5px;cursor:pointer;transition:background .3s}
 .contacto button:hover{background:#f0c040;color:#000}
 
+.contacto > p {
+  max-width: 600px;
+  margin: 0 auto 25px auto;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #003366; /* Same as header */
+  min-width: 220px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  list-style: none;
+  padding: 10px 0;
+  border-radius: 0 0 8px 8px;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li a {
+  padding: 12px 20px;
+  display: block;
+  text-align: left;
+}
+.dropdown-menu li a::after { display: none; }
+.dropdown > a i { font-size: 0.8em; margin-left: 5px; }
+
 /* Footer */
-footer{background:#003366; /* si prefieres fondo blanco; cambia a #003366 si quieres oscuro */color:#114b7a;padding:20px;text-align:center}
+footer{background:#003366 url("img/banner menu.png") no-repeat center/cover; color:#ffffff;padding:20px;text-align:center}
+footer {
+  background-color: #003366;
+  background-image: url("img/banner menu.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
 footer .social a{position:relative;display:inline-block;color:#fff;font-size:1.5rem;margin:0 12px;transition:color .3s ease}
 footer .social a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:#f0c040;transition:width .3s ease}
 footer .social a:hover{color:#f0c040}
@@ -150,7 +283,16 @@ footer > p{
     justify-content:center;
     gap:20px;
   }
+
+  .footer{
+    background:#003366 url("img/banner menu.png") no-repeat center/cover; 
+    color:#ffffff;
+    padding:20px;
+    text-align:center
+  }
 }
+
+
 
 /* Iconos sociales flotantes */
 .social-floating{position:fixed;right:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:9999;pointer-events:auto}
@@ -225,7 +367,31 @@ footer > p{
 
 /* Responsive */
 @media (max-width:900px){.gallery-and-info{grid-template-columns:1fr}.info{order:2}.gallery{order:1}}
-@media (max-width:768px){header nav ul{display:none}.menu-toggle{display:block}}
+@media (max-width:768px){
+  header nav ul{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #003366;
+  }
+  header nav.show ul { display: flex; }
+  .menu-toggle{display:block}
+  .dropdown .dropdown-menu { 
+    position: static; 
+    display: none; /* Oculto por defecto en móvil */
+    background: transparent; 
+    box-shadow: none; 
+    padding-left: 20px; 
+    border-radius: 0; 
+    min-width: auto; 
+  }
+  .dropdown.open .dropdown-menu { display: block; } /* Se muestra con la clase .open */
+  .dropdown > a i { display: inline-block; transition: transform 0.3s ease; } /* Muestra el icono y añade transición */
+  .dropdown.open > a i { transform: rotate(180deg); } /* Rota el icono al abrir */
+}
 @media (max-width:700px){.social-floating{right:10px;gap:8px}.social-floating a{width:42px;height:42px;font-size:18px}}
 @media (max-width:700px){header .logo{font-size:1.3rem;font-weight:700}}
 @media (max-width:768px){
@@ -258,4 +424,31 @@ section#requisitos.contacto {
   .requisitos {
     padding: 0 6px;
   }
+}
+
+/* Estilos para la página de todas las propiedades */
+.all-properties-page {
+  padding-top: 100px; /* Espacio para el header fijo */
+  padding-bottom: 40px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Ajuste para que las tarjetas en la grilla no tengan el efecto de carrusel */
+.cards-grid .card {
+  flex: auto; /* Resetea la propiedad flex del carrusel */
+  scroll-snap-align: unset; /* Resetea la propiedad snap del carrusel */
+}
+
+/* Sección de Inmuebles Relacionados en página de detalle */
+#related-properties {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid #eee;
 }
