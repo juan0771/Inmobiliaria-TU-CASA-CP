@@ -8,7 +8,7 @@ const properties = {
     price: "$2.000.000",
     features: ["3 habitaciones","2 baños","Jardín","Garaje"],
     images: [ "img/apto1/apto1.jpg", "img/apto1/apto2.jpg", "img/apto1/apto3.jpg", "img/apto1/apto1.jpg" ],
-    lat: 4.676, lng: -74.110, whatsapp: "573156165943"
+    lat: 4.676, lng: -74.110, whatsapp: "3142902041"
   },
   "2": {
     title:"Arriendo Apto en Bochica 3",
