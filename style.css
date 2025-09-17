@@ -6,7 +6,7 @@ body{line-height:1.6;color:#333;background:#fff}
 /* Header */
 header {
   background: #003366 url("img/banner menu.png") no-repeat center/cover;
-  position: absolute;
+  position: sticky; /* Make header sticky to stay at the top */
   top: 0;
   left: 0;
   width: 100%;
@@ -55,13 +55,6 @@ header .logo {
   margin-left: 6px;
 }
 
-/* Logo a la izquierda (antes del título) */
-.header-left-logo{
-  max-height:64px;
-  width:auto;
-  display:inline-block;
-}
-
 /* Hero */
 .hero{background:url(./img/banner.jpg) no-repeat center center/cover;height:80vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#ffffff;padding:20px}
 .hero h1{font-size:3.0rem;margin-bottom:10px;transition:transform .4s ease,color .3s ease;transform-origin:center;animation:heroZoom 8s ease-in-out infinite; font-family:'montserrat', sans-serif}
@@ -96,11 +89,42 @@ header .logo {
 }
 .card{background:#fff;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,.1);padding:15px;transition:transform .3s; flex: 0 0 290px; scroll-snap-align: start;}
 .card:hover{transform:translateY(-10px)}
-.card img{width:100%;border-radius:10px}
+.card .card-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.card img{width:100%;border-radius:10px; display: block; height: 180px; object-fit: cover;}
 .card h3{margin:15px 0 10px}
 .card p{color:#555;margin-bottom:12px}
 .card button{background:#003366;color:#fff;border:none;padding:10px 15px;border-radius:5px;cursor:pointer;transition:background .3s}
 .card button:hover{background:#f0c040;color:#000}
+
+/* Botones de navegación para las tarjetas de propiedades */
+.card-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.45);
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.card:hover .card-nav-btn {
+  opacity: 1;
+}
+.card-nav-btn.prev { left: 10px; }
+.card-nav-btn.next { right: 10px; }
+.card-nav-btn i { font-size: 14px; }
 
 /* Contenedor para el botón "Ver Todo" */
 .ver-todo-container {
@@ -108,8 +132,50 @@ header .logo {
 }
 
 /* Nosotros */
-.nosotros{background:#f3f2f2;padding:50px 70px;text-align:center}
-.nosotros h2{margin-bottom:20px}
+.nosotros {
+  background: url('./img/banner.jpg') no-repeat center center;
+  background-attachment: fixed;
+  
+  position: relative;
+  padding: 80px 20px;
+  text-align: center;
+  color: #fff;
+  z-index: 0;
+  background-size: cover;
+}
+
+.nosotros::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  /* Superposición oscura para legibilidad */
+  background: rgba(0, 51, 102, 0.8);
+  z-index: -1;
+}
+.nosotros h2{margin-bottom:25px; font-size: 2.2rem;}
+.nosotros-content {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+  scrollbar-width: none; /* Ocultar scrollbar en Firefox */
+}
+.nosotros-content::-webkit-scrollbar { display: none; } /* Ocultar scrollbar en Chrome/Safari */
+
+.nosotros-card {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 25px;
+  border-radius: 10px;
+}
+.nosotros-card p { text-align: justify; line-height: 1.8; }
 
 /* Nuestro Equipo */
 .team {
@@ -207,7 +273,10 @@ header .logo {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #003366; /* Same as header */
+ 
+  background-image: url("img/banner menu.png");
+  background-size: cover;
+  background-position:left;
   min-width: 220px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   z-index: 1;
@@ -228,8 +297,12 @@ header .logo {
 .dropdown-menu li a::after { display: none; }
 .dropdown > a i { font-size: 0.8em; margin-left: 5px; }
 
+/* Botón para cerrar el submenú en móvil */
+.dropdown-close-item {
+  display: none;
+}
+
 /* Footer */
-footer{background:#003366 url("img/banner menu.png") no-repeat center/cover; color:#ffffff;padding:20px;text-align:center}
 footer {
   background-color: #003366;
   background-image: url("img/banner menu.png");
@@ -290,13 +363,6 @@ footer > p{
     flex-direction:row;
     justify-content:center;
     gap:20px;
-  }
-
-  .footer{
-    background:#003366 url("img/banner menu.png") no-repeat center/cover; 
-    color:#ffffff;
-    padding:20px;
-    text-align:center
   }
 }
 
@@ -374,6 +440,8 @@ footer > p{
 }
 
 /* Responsive */
+
+
 @media (max-width:900px){
   .gallery-and-info{grid-template-columns:1fr}
   .info{order:2}
@@ -394,6 +462,11 @@ footer > p{
     flex-shrink: 0;
     scroll-snap-align: start;
   }
+  .nosotros {
+    background-attachment: scroll; /* Desactiva el parallax en móvil para mejor rendimiento */
+  }
+
+  
 }
 @media (max-width:768px){
   header nav ul{
@@ -411,14 +484,34 @@ footer > p{
     position: static; 
     display: none; /* Oculto por defecto en móvil */
     background: transparent; 
+    /* background: transparent; <-- Eliminado para heredar el fondo */
     box-shadow: none; 
     padding-left: 20px; 
     border-radius: 0; 
     min-width: auto; 
+    
+    border-radius: 8px; /* Bordes redondeados para el sub-menú */
   }
   .dropdown.open .dropdown-menu { display: block; } /* Se muestra con la clase .open */
+  .dropdown-close-item {
+    display: block;
+    margin-top: 5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .dropdown-close-item a {
+    text-align: center;
+    font-style: italic;
+    color: #f0c040 !important;
+    opacity: 0.9;
+    padding: 10px 20px !important;
+  }
   .dropdown > a i { display: inline-block; transition: transform 0.3s ease; } /* Muestra el icono y añade transición */
   .dropdown.open > a i { transform: rotate(180deg); } /* Rota el icono al abrir */
+
+  /* Hacer visibles las flechas de las tarjetas en móvil, ya que no hay hover */
+  .card .card-nav-btn {
+    opacity: 1;
+  }
 }
 @media (max-width:700px){.social-floating{right:10px;gap:8px}.social-floating a{width:42px;height:42px;font-size:18px}}
 @media (max-width:700px){header .logo{font-size:1.3rem;font-weight:700}}
@@ -435,11 +528,14 @@ section#requisitos.contacto {
   text-align: center;
 }
 
-/* En escritorio, se muestra como una cuadrícula de tarjetas */
+/* Ahora es un carrusel en todas las vistas */
 .requisitos-slides {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
   gap: 20px;
+  padding: 10px 0 20px 0;
   max-width: 1200px;
   margin: 0 auto;
   text-align: left;
@@ -477,6 +573,8 @@ section#requisitos.contacto {
   padding: 25px;
   border-radius: 10px;
   border: 1px solid #eee;
+  flex: 0 0 320px; /* Ancho base para cada tarjeta en escritorio */
+  scroll-snap-align: start;
 }
 
 .requisitos-slide h3 { color: #003366; margin-bottom: 15px; font-size: 1.3rem; }
@@ -491,13 +589,7 @@ section#requisitos.contacto {
   }
 
   .requisitos-slides {
-    /* Convertir de grid a carrusel flex */
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 20px;
     padding: 10px 20px 20px 20px;
-    grid-template-columns: none; /* Resetear grid */
   }
 
   .requisitos-slide {
