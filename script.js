@@ -16,8 +16,8 @@ const properties = {
     desc:"Ubicación céntrica con acceso a transporte y comercios.",
     price: "$2.000.000",
     features:["2 habitaciones","1 baño","Terraza"],
-    images:["https://picsum.photos/800/500?random=21","https://picsum.photos/800/500?random=22","https://picsum.photos/800/500?random=23"],
-    lat:41.385064,lng:2.173404, whatsapp:"34600111222"
+    images:["img/apto1/apto2.jpg","https://picsum.photos/800/500?random=22","https://picsum.photos/800/500?random=23"],
+    lat:41.385064,lng:2.173404, whatsapp:"3142902041"
   },
   "3": {
     title:"Casa de Lujo",
@@ -25,39 +25,9 @@ const properties = {
     desc:"Diseño exclusivo, piscina y acabados de primera.",
     price: "Consultar precio",
     features:["5 habitaciones","Piscina","Spa","Garaje"],
-    images:["https://picsum.photos/800/500?random=31","https://picsum.photos/800/500?random=32","https://picsum.photos/800/500?random=33"],
-    lat:36.510071,lng:-4.882477, whatsapp:"34600111222"
-  },
-  "4": {
-    title:"Chalet con Jardín",
-    address:"C/ Tranquila 7, Sevilla",
-    desc:"Entorno tranquilo y gran parcela.",
-    price: "Consultar precio",
-    features:["4 habitaciones","Parcela grande","Barbacoa"],
-    images:["https://picsum.photos/400/250?random=4","https://picsum.photos/800/500?random=41","https://picsum.photos/800/500?random=42"],
-    lat:37.389092,lng:-5.984459, whatsapp:"34600111222"
-  },
-  "5": {
-    title:"Ático Luminoso",
-    address:"Av. Vistas 10, Valencia",
-    desc:"Terraza amplia y excelentes vistas.",
-    price: "Consultar precio",
-    features:["2 habitaciones","Terraza amplia","Ascensor"],
-    images:["https://picsum.photos/400/250?random=5","https://picsum.photos/800/500?random=51","https://picsum.photos/800/500?random=52"],
-    lat:39.469907,lng:-0.376288, whatsapp:"34600111222"
-  },
-  "6": {
-    title:"Casa Reformada",
-    address:"C/ Nueva 3, Bilbao",
-    desc:"Reciente reforma, lista para habitar.",
-    price: "Consultar precio",
-    features:["3 habitaciones","Reformada","Cercana a transporte"],
-    images:["https://picsum.photos/400/250?random=6","https://picsum.photos/800/500?random=61","https://picsum.photos/800/500?random=62"],
-    lat:43.263012,lng:-2.934985, whatsapp:"34600111222"
-  },
-  "7": { title:"Piso Económico", desc:"Buena inversión para alquiler.", price: "Consultar precio", features:["1 dormitorio","Cocina equipada","Buena renta"], images:["https://picsum.photos/400/250?random=7","https://picsum.photos/800/500?random=71"], lat:41.648823,lng:-0.889085, whatsapp:"34600111222" },
-  "8": { title:"Villa de Diseño", desc:"Arquitectura moderna y acabados premium.", price: "Consultar precio", features:["4 habitaciones","Piscina infinita","Vistas al mar"], images:["https://picsum.photos/400/250?random=8","https://picsum.photos/800/500?random=81"], lat:36.721273,lng:-4.421398, whatsapp:"34600111222" }
-};
+    images:["img/apto1/apto3.jpg","https://picsum.photos/800/500?random=32","https://picsum.photos/800/500?random=33"],
+    lat:36.510071,lng:-4.882477, whatsapp:"3142902041"
+  }};
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -81,26 +51,92 @@ menuToggle.addEventListener("click", () => {
 
 // Cerrar menú al hacer clic en un enlace
 document.querySelectorAll("#nav-menu a").forEach(link => {
-  link.addEventListener("click", (e) => {
+  link.addEventListener('click', (e) => {
+    // Solo aplicar lógica especial en vista móvil
     const isMobile = menuToggle.offsetParent !== null;
-    const isDropdownToggle = link.parentElement.classList.contains('dropdown');
+    if (!isMobile) {
+      return; // En escritorio, el comportamiento es el normal
+    }
 
-    if (isMobile && isDropdownToggle) {
-      // En vista móvil, el clic en "Servicios" abre/cierra el submenú
+    const parentLi = link.parentElement;
+
+    // Si es el botón para cerrar el submenú
+    if (parentLi.classList.contains('dropdown-close-item')) {
       e.preventDefault();
-      link.parentElement.classList.toggle('open');
+      // Busca el contenedor .dropdown y le quita la clase .open
+      link.closest('.dropdown.open')?.classList.remove('open');
+      return; // Detiene la ejecución para no cerrar el menú principal
+    }
+
+    // Si es el botón principal del dropdown ("Servicios")
+    if (parentLi.classList.contains('dropdown')) {
+      e.preventDefault();
+      parentLi.classList.toggle('open');
     } else {
-      // Para cualquier otro enlace, se cierra el menú principal (si está abierto)
+      // Si es cualquier otro enlace (incluidos los del submenú), cerrar todo el menú
       if (navMenu.classList.contains("show")) {
         navMenu.classList.remove("show");
         menuToggle.classList.remove("active");
         toggleIcon.classList.remove("fa-times");
         toggleIcon.classList.add("fa-bars");
-        document.querySelectorAll('.nav .dropdown.open').forEach(d => d.classList.remove('open'));
+        // Asegurarse de que el submenú también se cierre visualmente
+        document.querySelector('.nav .dropdown.open')?.classList.remove('open');
       }
     }
   });
 });
+
+  // --- Delegated event listener for card image navigation ---
+  document.body.addEventListener('click', (e) => {
+    const navButton = e.target.closest('.card-nav-btn');
+    if (!navButton) return;
+
+    // Prevent the click from bubbling up to a parent link (like the card's "Más información")
+    e.preventDefault();
+    e.stopPropagation();
+
+    const card = navButton.closest('.card');
+    const img = card.querySelector('.card-image-wrapper img');
+    // The images are stored as a JSON string in the data-attribute
+    const images = JSON.parse(card.dataset.images);
+    let currentIndex = parseInt(img.dataset.index, 10);
+
+    if (navButton.classList.contains('next')) {
+        currentIndex = (currentIndex + 1) % images.length;
+    } else if (navButton.classList.contains('prev')) {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+    }
+
+    img.src = images[currentIndex];
+    img.dataset.index = currentIndex;
+  });
+
+  // Helper function to create card HTML
+  function createPropertyCardHTML(id, prop) {
+    const imageUrl = prop.images && prop.images.length > 0 ? prop.images[0] : 'https://picsum.photos/400/250';
+    const priceHTML = prop.price ? `<p><strong>${prop.price}</strong></p>` : '<p><strong>Consultar precio</strong></p>';
+    // Hide nav buttons if there's only one image
+    const navButtonsHTML = prop.images && prop.images.length > 1 ? `
+      <button class="card-nav-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+      <button class="card-nav-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+    ` : '';
+
+    // Store all image URLs in a data attribute, properly stringified
+    const imagesData = JSON.stringify(prop.images || []);
+
+    return `
+      <div class="card" data-images='${imagesData}'>
+        <div class="card-image-wrapper">
+          <img src="${imageUrl}" alt="${prop.title}" data-index="0" loading="lazy">
+          ${navButtonsHTML}
+        </div>
+        <h3>${prop.title}</h3>
+        <p>${prop.desc}</p>
+        ${priceHTML}
+        <a class="btn" href="propiedad.html?id=${id}">Más información</a>
+      </div>
+    `;
+  }
 
   // --- Lightbox Global ---
   // Elementos del lightbox
@@ -164,6 +200,20 @@ document.querySelectorAll("#nav-menu a").forEach(link => {
     renderThumbs(currentImages, currentIndex);
   }
 
+  /* Si estamos en index.html: generar las tarjetas de propiedades dinámicamente */
+  if (location.pathname.endsWith('index.html') || location.pathname.endsWith('/')) {
+    const cardsContainer = document.querySelector('#propiedades .cards');
+    if (cardsContainer) {
+        cardsContainer.innerHTML = ''; // Limpiar tarjetas hardcodeadas
+        for (const id in properties) {
+            if (Object.hasOwnProperty.call(properties, id)) {
+                const prop = properties[id];
+                cardsContainer.innerHTML += createPropertyCardHTML(id, prop);
+            }
+        }
+    }
+  }
+
   /* Si estamos en la nueva página propiedades.html: generar la grilla de propiedades */
   if (location.pathname.endsWith('propiedades.html')) {
     const cardsContainer = document.querySelector('.cards-grid');
@@ -172,21 +222,7 @@ document.querySelectorAll("#nav-menu a").forEach(link => {
         for (const id in properties) {
             if (Object.hasOwnProperty.call(properties, id)) {
                 const prop = properties[id];
-                const imageUrl = prop.images && prop.images.length > 0 ? prop.images[0] : 'https://picsum.photos/400/250';
-                
-                const card = document.createElement('div');
-                card.className = 'card';
-                // Usamos el precio del objeto, y mostramos el párrafo solo si existe.
-                const priceHTML = prop.price ? `<p><strong>${prop.price}</strong></p>` : '<p><strong>Consultar precio</strong></p>';
-
-                card.innerHTML = `
-                    <img src="${imageUrl}" alt="${prop.title}">
-                    <h3>${prop.title}</h3>
-                    <p>${prop.desc}</p>
-                    ${priceHTML}
-                    <a class="btn" href="propiedad.html?id=${id}">Más información</a>
-                `;
-                cardsContainer.appendChild(card);
+                cardsContainer.innerHTML += createPropertyCardHTML(id, prop);
             }
         }
     }
@@ -267,20 +303,7 @@ document.querySelectorAll("#nav-menu a").forEach(link => {
               if (propId === id) continue;
 
               const relatedProp = properties[propId];
-              const imageUrl = relatedProp.images && relatedProp.images.length > 0 ? relatedProp.images[0] : 'https://picsum.photos/400/250';
-              
-              const card = document.createElement('div');
-              card.className = 'card';
-              const priceHTML = relatedProp.price ? `<p><strong>${relatedProp.price}</strong></p>` : '<p><strong>Consultar precio</strong></p>';
-
-              card.innerHTML = `
-                  <img src="${imageUrl}" alt="${relatedProp.title}">
-                  <h3>${relatedProp.title}</h3>
-                  <p>${relatedProp.desc}</p>
-                  ${priceHTML}
-                  <a class="btn" href="propiedad.html?id=${propId}">Más información</a>
-              `;
-              relatedContainer.appendChild(card);
+              relatedContainer.innerHTML += createPropertyCardHTML(propId, relatedProp);
           }
       }
     }
