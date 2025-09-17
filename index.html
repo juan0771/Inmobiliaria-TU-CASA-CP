@@ -8,8 +8,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="style logo.css" />
   <!-- Font Awesome (CDN) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pb6X/..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <!-- Header -->
@@ -17,12 +16,18 @@
     <!-- logo a la izquierda -->
     <img src="img/logo banner.png" alt="Logo" class="header-left-logo" >
 
-    <div class="logo">Inmobiliaria TU CASA CP </div>
+    <div class="logo">Inmobiliaria TU CASA CP</div>
 
     <nav class="nav" id="nav-menu">
       <ul>
         <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#propiedades">Propiedades</a></li>
+        <li class="dropdown">
+          <a href="#">Servicios <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="#propiedades">Propiedades en Arriendo</a></li>
+            <li><a href="#confiar-inmueble">Confíanos tu Inmueble</a></li>
+          </ul>
+        </li>
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#requisitos">Requisitos</a></li>
       </ul>
@@ -39,60 +44,81 @@
     <p>Ofrecemos las mejores propiedades para ti y tu familia.</p>
   </section>
 
+  <!-- Confíanos tu Inmueble -->
+  <section id="confiar-inmueble" class="contacto">
+    <h2>Confíanos tu Inmueble</h2>
+    <p>¿Quieres arrendar o vender tu propiedad? Déjanos tus datos y un asesor se pondrá en contacto contigo para ofrecerte la mejor solución.</p>
+    <form id="consignarForm">
+      <input type="text" id="nombreConsignar" placeholder="Tu Nombre Completo" required>
+      <input type="email" id="emailConsignar" placeholder="Tu Correo Electrónico" required>
+      <input type="tel" id="telefonoConsignar" placeholder="Tu Teléfono de Contacto" required>
+      <textarea id="mensajeConsignar" placeholder="Cuéntanos sobre tu inmueble (tipo, ubicación, características, etc.)" rows="4" required></textarea>
+      <button type="submit" class="btn">Enviar Información</button>
+    </form>
+  </section>
+
   <!-- Propiedades -->
   <section id="propiedades" class="propiedades">
-    <h2>Propiedades Destacadas</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="https://picsum.photos/400/250?random=1" alt="Casa 1">
-        <h3>Arriendo Casa en Normandia</h3>
-        <p>Amplia casa de 3 habitaciones con jardín privado.</p>
-        <p>$2.000.000</p>
-        <a class="btn" href="propiedad.html?id=1">Más información</a> 
+    <h2>Propiedades Disponibles</h2>
+    <div class="carousel-wrapper">
+      <button class="carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+      <div class="cards">
+        <div class="card">
+          <img src="https://picsum.photos/400/250?random=1" alt="Casa 1">
+          <h3>Arriendo Casa en Normandia</h3>
+          <p>Amplia casa de 3 habitaciones con jardín privado.</p>
+          <p>$2.000.000</p>
+          <a class="btn" href="propiedad.html?id=1">Más información</a> 
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/400/250?random=2" alt="Apartamento">
+          <h3>Arriendo Apto en Bochica 3</h3>
+          <p>Ubicación céntrica con acceso a transporte y comercios.</p>
+          <p>$2.000.000</p>
+          <a class="btn" href="propiedad.html?id=2">Más información</a>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/400/250?random=3" alt="Casa de lujo">
+          <h3>Casa de Lujo</h3>
+          <p>Diseño exclusivo, piscina y acabados de primera.</p>
+          <a class="btn" href="propiedad.html?id=3">Más información</a>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/400/250?random=4" alt="Chalet">
+          <h3>Chalet con Jardín</h3>
+          <p>Entorno tranquilo y gran parcela.</p>
+          <a class="btn" href="propiedad.html?id=4">Más información</a>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/400/250?random=5" alt="Ático">
+          <h3>Ático Luminoso</h3>
+          <p>Terraza amplia y excelentes vistas.</p>
+          <a class="btn" href="propiedad.html?id=5">Más información</a>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/400/250?random=6" alt="Casa reformada">
+          <h3>Casa Reformada</h3>
+          <p>Reciente reforma, lista para habitar.</p>
+          <a class="btn" href="propiedad.html?id=6">Más información</a>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/400/250?random=7" alt="Piso económico">
+          <h3>Piso Económico</h3>
+          <p>Buena inversión para alquiler.</p>
+          <a class="btn" href="propiedad.html?id=7">Más información</a>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/400/250?random=8" alt="Villa">
+          <h3>Villa de Diseño</h3>
+          <p>Arquitectura moderna y acabados premium.</p>
+          <a class="btn" href="propiedad.html?id=8">Más información</a>
+        </div>
+        <!-- Las tarjetas de propiedades se generarán aquí dinámicamente con JavaScript -->
       </div>
-      <div class="card">
-        <img src="https://picsum.photos/400/250?random=2" alt="Apartamento">
-        <h3>Arriendo Apto en Bochica 3</h3>
-        <p>Ubicación céntrica con acceso a transporte y comercios.</p>
-        <p>$2.000.000</p>
-        <a class="btn" href="propiedad.html?id=2">Más información</a>
-      </div>
-      <div class="card">
-        <img src="https://picsum.photos/400/250?random=3" alt="Casa de lujo">
-        <h3>Casa de Lujo</h3>
-        <p>Diseño exclusivo, piscina y acabados de primera.</p>
-        <a class="btn" href="propiedad.html?id=3">Más información</a>
-      </div>
-      <div class="card">
-        <img src="https://picsum.photos/400/250?random=4" alt="Chalet">
-        <h3>Chalet con Jardín</h3>
-        <p>Entorno tranquilo y gran parcela.</p>
-        <a class="btn" href="propiedad.html?id=4">Más información</a>
-      </div>
-      <div class="card">
-        <img src="https://picsum.photos/400/250?random=5" alt="Ático">
-        <h3>Ático Luminoso</h3>
-        <p>Terraza amplia y excelentes vistas.</p>
-        <a class="btn" href="propiedad.html?id=5">Más información</a>
-      </div>
-      <div class="card">
-        <img src="https://picsum.photos/400/250?random=6" alt="Casa reformada">
-        <h3>Casa Reformada</h3>
-        <p>Reciente reforma, lista para habitar.</p>
-        <a class="btn" href="propiedad.html?id=6">Más información</a>
-      </div>
-      <div class="card">
-        <img src="https://picsum.photos/400/250?random=7" alt="Piso económico">
-        <h3>Piso Económico</h3>
-        <p>Buena inversión para alquiler.</p>
-        <a class="btn" href="propiedad.html?id=7">Más información</a>
-      </div>
-      <div class="card">
-        <img src="https://picsum.photos/400/250?random=8" alt="Villa">
-        <h3>Villa de Diseño</h3>
-        <p>Arquitectura moderna y acabados premium.</p>
-        <a class="btn" href="propiedad.html?id=8">Más información</a>
-      </div>
+      <button class="carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="ver-todo-container">
+      <a href="propiedades.html" class="btn">Ver Todo</a>
     </div>
   </section>
 
@@ -115,6 +141,47 @@
         seguridad y soluciones prácticas, haciendo de la compra, venta 
         o arriendo una experiencia clara y sin complicaciones.
       </p>
+    </div>
+  </section>
+
+  <!-- Nuestro Equipo -->
+  <section id="equipo" class="team">
+    <h2>Nuestro Equipo de Trabajo</h2>
+    <div class="team-carousel-wrapper">
+      <button class="carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+      <div class="team-cards">
+        <div class="team-card">
+          <img src="./img/img_grupo_trabajo/Maria Anani.png" alt="Foto de Carlos Pérez">
+          <h3>Maria Anani</h3>
+          <p>Gerente General</p>
+        </div>
+        <div class="team-card">
+          <img src="./img/img_grupo_trabajo/Nicole Anani.PNG" alt="Foto de Ana García">
+          <h3>Nicole Anani</h3>
+          <p>Directora Comercial</p>
+        </div>
+        <!-- <div class="team-card">
+          <img src="" alt="Foto de Luis Rodríguez">
+          <h3>Luis Rodríguez</h3>
+          <p>Asesor Inmobiliario</p>
+        </div>
+        <div class="team-card">
+          <img src="" alt="Foto de María Fernández">
+          <h3>María Fernández</h3>
+          <p>Asesora Inmobiliaria</p>
+        </div>
+        <div class="team-card">
+          <img src="" alt="Foto de Javier López">
+          <h3>Javier López</h3>
+          <p>Coordinador de Marketing</p>
+        </div>
+        <div class="team-card">
+          <img src="" alt="Foto de Laura Martínez">
+          <h3>Laura Martínez</h3>
+          <p>Administración</p>
+        </div> -->
+      </div>
+      <button class="carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
     </div>
   </section>
 
@@ -166,6 +233,20 @@ En el contenido del correo, por favor indicar la siguiente información:
   </div>
   </section>
 
+  <!-- Lightbox / Visor de imágenes (para el equipo) -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" tabindex="-1">
+    <button class="lb-close" aria-label="Cerrar (Esc)">&times;</button>
+    <button class="lb-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+
+    <div class="lb-content" role="dialog" aria-modal="true">
+      <img id="lb-image" src="" alt="">
+    </div>
+
+    <button class="lb-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+
+    <div class="lb-thumbs" id="lb-thumbs" aria-hidden="false"></div>
+  </div>
+
   <!-- Footer -->
   <footer>
     <div class="footer-contact">
@@ -179,20 +260,20 @@ En el contenido del correo, por favor indicar la siguiente información:
     <div class="social">
       <a href="https://wa.me/3142902041" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
       <a href="https://www.facebook.com/tu-pagina" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.instagram.com/tucasacp?igsh=MTU5dnJzY2k1ZDhpMg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.instagram.com/tu-perfil" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="https://www.tiktok.com/@tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
     </div>
   </footer>
 
   <!-- Iconos sociales flotantes -->
   <div class="social-floating" aria-hidden="false">
-    <a href="https://wa.me/3142902041?text=Hola%20quiero%20más%20info" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <a href="https://wa.me/34600111222?text=Hola%20quiero%20más%20info" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
       <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
     <a href="https://www.facebook.com/tu-pagina" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
       <i class="fab fa-facebook-f" aria-hidden="true"></i>
     </a>
-    <a href="https://www.instagram.com/tucasacp?igsh=MTU5dnJzY2k1ZDhpMg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+    <a href="https://www.instagram.com/tu-perfil" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
       <i class="fab fa-instagram" aria-hidden="true"></i>
     </a>
     <a href="https://www.tiktok.com/@tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
