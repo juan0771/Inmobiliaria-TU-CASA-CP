@@ -1,286 +1,289 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inmobiliaria Tu Casa CP</title>
-  <link rel="shortcut icon" href="img/ico titulo 2.jpeg">
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="style logo.css" />
-  <!-- Font Awesome (CDN) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-  <!-- Header -->
-  <header>
-    <!-- logo a la izquierda -->
-    <img src="img/logo banner.png" alt="Logo" class="header-left-logo" >
-
-    <div class="logo">Inmobiliaria TU CASA CP</div>
-
-    <nav class="nav" id="nav-menu">
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li class="dropdown">
-          <a href="#">Servicios <i class="fas fa-chevron-down"></i></a>
-          <ul class="dropdown-menu">
-            <li><a href="#propiedades">Propiedades en Arriendo</a></li>
-            <li><a href="#confiar-inmueble">Confíanos tu Inmueble</a></li>
-          </ul>
-        </li>
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#requisitos">Requisitos</a></li>
-      </ul>
-    </nav>
-    <!-- Botón Hamburguesa -->
-    <div class="menu-toggle" id="menu-toggle">
-      <i class="fas fa-bars"></i>
-    </div>
-  </header>
-  
-  <!-- Hero -->
-  <section id="inicio" class="hero">
-    <h1>Encuentra tu hogar ideal</h1>
-    <p>Ofrecemos las mejores propiedades para ti y tu familia.</p>
-  </section>
-
-  <!-- Confíanos tu Inmueble -->
-  <section id="confiar-inmueble" class="contacto">
-    <h2>Confíanos tu Inmueble</h2>
-    <p>¿Quieres arrendar o vender tu propiedad? Déjanos tus datos y un asesor se pondrá en contacto contigo para ofrecerte la mejor solución.</p>
-    <form id="consignarForm">
-      <input type="text" id="nombreConsignar" placeholder="Tu Nombre Completo" required>
-      <input type="email" id="emailConsignar" placeholder="Tu Correo Electrónico" required>
-      <input type="tel" id="telefonoConsignar" placeholder="Tu Teléfono de Contacto" required>
-      <textarea id="mensajeConsignar" placeholder="Cuéntanos sobre tu inmueble (tipo, ubicación, características, etc.)" rows="4" required></textarea>
-      <button type="submit" class="btn">Enviar Información</button>
-    </form>
-  </section>
-
-  <!-- Propiedades -->
-  <section id="propiedades" class="propiedades">
-    <h2>Propiedades Disponibles</h2>
-    <div class="carousel-wrapper">
-      <button class="carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
-      <div class="cards">
-        <div class="card">
-          <img src="https://picsum.photos/400/250?random=1" alt="Casa 1">
-          <h3>Arriendo Casa en Normandia</h3>
-          <p>Amplia casa de 3 habitaciones con jardín privado.</p>
-          <p>$2.000.000</p>
-          <a class="btn" href="propiedad.html?id=1">Más información</a> 
-        </div>
-        <div class="card">
-          <img src="https://picsum.photos/400/250?random=2" alt="Apartamento">
-          <h3>Arriendo Apto en Bochica 3</h3>
-          <p>Ubicación céntrica con acceso a transporte y comercios.</p>
-          <p>$2.000.000</p>
-          <a class="btn" href="propiedad.html?id=2">Más información</a>
-        </div>
-        <div class="card">
-          <img src="https://picsum.photos/400/250?random=3" alt="Casa de lujo">
-          <h3>Casa de Lujo</h3>
-          <p>Diseño exclusivo, piscina y acabados de primera.</p>
-          <a class="btn" href="propiedad.html?id=3">Más información</a>
-        </div>
-        <div class="card">
-          <img src="https://picsum.photos/400/250?random=4" alt="Chalet">
-          <h3>Chalet con Jardín</h3>
-          <p>Entorno tranquilo y gran parcela.</p>
-          <a class="btn" href="propiedad.html?id=4">Más información</a>
-        </div>
-        <div class="card">
-          <img src="https://picsum.photos/400/250?random=5" alt="Ático">
-          <h3>Ático Luminoso</h3>
-          <p>Terraza amplia y excelentes vistas.</p>
-          <a class="btn" href="propiedad.html?id=5">Más información</a>
-        </div>
-        <div class="card">
-          <img src="https://picsum.photos/400/250?random=6" alt="Casa reformada">
-          <h3>Casa Reformada</h3>
-          <p>Reciente reforma, lista para habitar.</p>
-          <a class="btn" href="propiedad.html?id=6">Más información</a>
-        </div>
-        <div class="card">
-          <img src="https://picsum.photos/400/250?random=7" alt="Piso económico">
-          <h3>Piso Económico</h3>
-          <p>Buena inversión para alquiler.</p>
-          <a class="btn" href="propiedad.html?id=7">Más información</a>
-        </div>
-        <div class="card">
-          <img src="https://picsum.photos/400/250?random=8" alt="Villa">
-          <h3>Villa de Diseño</h3>
-          <p>Arquitectura moderna y acabados premium.</p>
-          <a class="btn" href="propiedad.html?id=8">Más información</a>
-        </div>
-        <!-- Las tarjetas de propiedades se generarán aquí dinámicamente con JavaScript -->
+  <!DOCTYPE html>
+  <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inmobiliaria Tu Casa CP</title>
+    <link rel="shortcut icon" href="img/ico titulo 2.jpeg">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style logo.css" />
+    <!-- Font Awesome (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <!-- logo a la izquierda -->
+      <a href="index.html" class="logo-link">
+        <img src="img/logo banner.png" alt="Logo" class="header-left-logo" >
+        <div class="logo">Inmobiliaria TU CASA CP</div>
+      </a>
+      <nav class="nav" id="nav-menu">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li class="dropdown">
+            <a href="#">Servicios <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="#propiedades">Propiedades en Arriendo</a></li>
+              <li><a href="#confiar-inmueble">Confíanos tu Inmueble</a></li>
+            </ul>
+          </li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#requisitos">Requisitos</a></li>
+        </ul>
+      </nav>
+      <!-- Botón Hamburguesa -->
+      <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
       </div>
-      <button class="carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
-    </div>
-    <div class="ver-todo-container">
-      <a href="propiedades.html" class="btn">Ver Todo</a>
-    </div>
-  </section>
+    </header>
+    
+    <!-- Hero -->
+    <section id="inicio" class="hero">
+      <h1>Encuentra tu hogar ideal</h1>
+      <p>Ofrecemos las mejores propiedades para ti y tu familia.</p>
+    </section>
 
-  <!-- Sobre Nosotros -->
-  <section id="nosotros" class="nosotros">
-    <h2>Sobre Nosotros</h2>
-    <div style="text-align: center;">
-      <p style="text-align: justify;"></p>
-        En <strong>Inmobiliaria TU CASA CP</strong> creemos que cada espacio es más 
-        que una propiedad: es una oportunidad de cumplir sueños y 
-        construir proyectos de vida. Nuestro propósito es conectar 
-        a las personas con el inmueble ideal, ya sea para vivir, 
-        invertir o emprender.
-      </p>
-      <br>
-      <p>
-        Ofrecemos un servicio cercano y transparente, respaldado 
-        por un equipo profesional que conoce el mercado y acompaña 
-        cada paso del proceso. Nos enfocamos en brindar confianza, 
-        seguridad y soluciones prácticas, haciendo de la compra, venta 
-        o arriendo una experiencia clara y sin complicaciones.
-      </p>
-    </div>
-  </section>
+    <!-- Confíanos tu Inmueble -->
+    <section id="confiar-inmueble" class="contacto">
+      <h2>Confíanos tu Inmueble</h2>
+      <p>¿Quieres arrendar o vender tu propiedad? Déjanos tus datos y un asesor se pondrá en contacto contigo para ofrecerte la mejor solución.</p>
+      <form id="consignarForm">
+        <input type="text" id="nombreConsignar" placeholder="Tu Nombre Completo" required>
+        <input type="email" id="emailConsignar" placeholder="Tu Correo Electrónico" required>
+        <input type="tel" id="telefonoConsignar" placeholder="Tu Teléfono de Contacto" required>
+        <textarea id="mensajeConsignar" placeholder="Cuéntanos sobre tu inmueble (tipo, ubicación, características, etc.)" rows="4" required></textarea>
+        <button type="submit" class="btn">Enviar Información</button>
+      </form>
+    </section>
 
-  <!-- Nuestro Equipo -->
-  <section id="equipo" class="team">
-    <h2>Nuestro Equipo de Trabajo</h2>
-    <div class="team-carousel-wrapper">
-      <button class="carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
-      <div class="team-cards">
-        <div class="team-card">
-          <img src="./img/img_grupo_trabajo/Maria Anani.png" alt="Foto de Carlos Pérez">
-          <h3>Maria Anani</h3>
-          <p>Gerente General</p>
+    <!-- Propiedades -->
+    <section id="propiedades" class="propiedades">
+      <h2>Propiedades Disponibles</h2>
+      <div class="carousel-wrapper">
+        <button class="carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <div class="cards">
+          <div class="card">
+            <img src="https://picsum.photos/400/250?random=1" alt="Casa 1">
+            <h3>Arriendo Casa en Normandia</h3>
+            <p>Amplia casa de 3 habitaciones con jardín privado.</p>
+            <p>$2.000.000</p>
+            <a class="btn" href="propiedad.html?id=1">Más información</a> 
+          </div>
+          <div class="card">
+            <img src="https://picsum.photos/400/250?random=2" alt="Apartamento">
+            <h3>Arriendo Apto en Bochica 3</h3>
+            <p>Ubicación céntrica con acceso a transporte y comercios.</p>
+            <p>$2.000.000</p>
+            <a class="btn" href="propiedad.html?id=2">Más información</a>
+          </div>
+          <div class="card">
+            <img src="https://picsum.photos/400/250?random=3" alt="Casa de lujo">
+            <h3>Casa de Lujo</h3>
+            <p>Diseño exclusivo, piscina y acabados de primera.</p>
+            <a class="btn" href="propiedad.html?id=3">Más información</a>
+          </div>
+          <div class="card">
+            <img src="https://picsum.photos/400/250?random=4" alt="Chalet">
+            <h3>Chalet con Jardín</h3>
+            <p>Entorno tranquilo y gran parcela.</p>
+            <a class="btn" href="propiedad.html?id=4">Más información</a>
+          </div>
+          <div class="card">
+            <img src="https://picsum.photos/400/250?random=5" alt="Ático">
+            <h3>Ático Luminoso</h3>
+            <p>Terraza amplia y excelentes vistas.</p>
+            <a class="btn" href="propiedad.html?id=5">Más información</a>
+          </div>
+          <div class="card">
+            <img src="https://picsum.photos/400/250?random=6" alt="Casa reformada">
+            <h3>Casa Reformada</h3>
+            <p>Reciente reforma, lista para habitar.</p>
+            <a class="btn" href="propiedad.html?id=6">Más información</a>
+          </div>
+          <div class="card">
+            <img src="https://picsum.photos/400/250?random=7" alt="Piso económico">
+            <h3>Piso Económico</h3>
+            <p>Buena inversión para alquiler.</p>
+            <a class="btn" href="propiedad.html?id=7">Más información</a>
+          </div>
+          <div class="card">
+            <img src="https://picsum.photos/400/250?random=8" alt="Villa">
+            <h3>Villa de Diseño</h3>
+            <p>Arquitectura moderna y acabados premium.</p>
+            <a class="btn" href="propiedad.html?id=8">Más información</a>
+          </div>
+          <!-- Las tarjetas de propiedades se generarán aquí dinámicamente con JavaScript -->
         </div>
-        <div class="team-card">
-          <img src="./img/img_grupo_trabajo/Nicole Anani.PNG" alt="Foto de Ana García">
-          <h3>Nicole Anani</h3>
-          <p>Directora Comercial</p>
-        </div>
-        <!-- <div class="team-card">
-          <img src="" alt="Foto de Luis Rodríguez">
-          <h3>Luis Rodríguez</h3>
-          <p>Asesor Inmobiliario</p>
-        </div>
-        <div class="team-card">
-          <img src="" alt="Foto de María Fernández">
-          <h3>María Fernández</h3>
-          <p>Asesora Inmobiliaria</p>
-        </div>
-        <div class="team-card">
-          <img src="" alt="Foto de Javier López">
-          <h3>Javier López</h3>
-          <p>Coordinador de Marketing</p>
-        </div>
-        <div class="team-card">
-          <img src="" alt="Foto de Laura Martínez">
-          <h3>Laura Martínez</h3>
-          <p>Administración</p>
-        </div> -->
+        <button class="carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
       </div>
-      <button class="carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+      <div class="ver-todo-container">
+        <a href="propiedades.html" class="btn">Ver Todo</a>
+      </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section id="nosotros" class="nosotros">
+      <h2>Sobre Nosotros</h2>
+      <div style="text-align: center;">
+        <p style="text-align: justify;"></p>
+          En <strong>Inmobiliaria TU CASA CP</strong> creemos que cada espacio es más 
+          que una propiedad: es una oportunidad de cumplir sueños y 
+          construir proyectos de vida. Nuestro propósito es conectar 
+          a las personas con el inmueble ideal, ya sea para vivir, 
+          invertir o emprender.
+        </p>
+        <br>
+        <p>
+          Ofrecemos un servicio cercano y transparente, respaldado 
+          por un equipo profesional que conoce el mercado y acompaña 
+          cada paso del proceso. Nos enfocamos en brindar confianza, 
+          seguridad y soluciones prácticas, haciendo de la compra, venta 
+          o arriendo una experiencia clara y sin complicaciones.
+        </p>
+      </div>
+    </section>
+
+    <!-- Nuestro Equipo -->
+    <section id="equipo" class="team">
+      <h2>Nuestro Equipo de Trabajo</h2>
+      <div class="team-carousel-wrapper">
+        <button class="carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <div class="team-cards">
+          <div class="team-card">
+            <img src="./img/img_grupo_trabajo/Maria Anani.png" alt="Foto de Carlos Pérez">
+            <h3>Maria Anani</h3>
+            <p>Gerente General</p>
+          </div>
+          <div class="team-card">
+            <img src="./img/img_grupo_trabajo/Nicole Anani.PNG" alt="Foto de Ana García">
+            <h3>Nicole Anani</h3>
+            <p>Directora Comercial</p>
+          </div>
+          <!-- <div class="team-card">
+            <img src="" alt="Foto de Luis Rodríguez">
+            <h3>Luis Rodríguez</h3>
+            <p>Asesor Inmobiliario</p>
+          </div>
+          <div class="team-card">
+            <img src="" alt="Foto de María Fernández">
+            <h3>María Fernández</h3>
+            <p>Asesora Inmobiliaria</p>
+          </div>
+          <div class="team-card">
+            <img src="" alt="Foto de Javier López">
+            <h3>Javier López</h3>
+            <p>Coordinador de Marketing</p>
+          </div>
+          <div class="team-card">
+            <img src="" alt="Foto de Laura Martínez">
+            <h3>Laura Martínez</h3>
+            <p>Administración</p>
+          </div> -->
+        </div>
+        <button class="carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <!-- Requisitos (reemplaza la sección Contacto) -->
+    <section id="requisitos" class="contacto">
+      <h2>Requisitos</h2>
+      <div class="carousel-wrapper requisitos-carousel">
+        <div class="requisitos-slides">
+          <!-- Slide 1: Empleado -->
+          <div class="requisitos-slide">
+            <h3>✅ Si eres Empleado</h3>
+            <p>Para iniciar el proceso, te solicitamos aportar los siguientes documentos:</p>
+            <ul>
+              <li>Certificación laboral vigente.</li>
+              <li>Desprendibles de nómina de los últimos 3 meses.</li>
+              <li>Correo electrónico y número de contacto.</li>
+              <li>Imagen legible de tu cédula de ciudadanía.</li>
+              <li>Formato de autorización de tratamiento de datos.</li>
+            </ul>
+          </div>
+          <!-- Slide 2: Independiente -->
+          <div class="requisitos-slide">
+            <h3>✅ Si eres Independiente</h3>
+            <p>Para iniciar el proceso, te solicitamos aportar los siguientes documentos:</p>
+            <ul>
+              <li>Certificado de Cámara de Comercio o RUT vigente.</li>
+              <li>Extractos bancarios de los últimos 3 meses.</li>
+              <li>Correo electrónico y número de contacto.</li>
+              <li>Imagen legible de tu cédula de ciudadanía.</li>
+              <li>Formato de autorización de tratamiento de datos.</li>
+            </ul>
+          </div>
+          <!-- Slide 3: Deudor Solidario -->
+          <div class="requisitos-slide">
+            <h3>✅ Para tu Deudor Solidario</h3>
+            <ul>
+              <li><strong>Con inmueble:</strong> Certificado de tradición y libertad vigente (sin hipotecas, embargos o usufructos).</li>
+              <li><strong>Solvente:</strong> Documentos como asalariado o independiente, acreditando ingresos del doble del canon.</li>
+              <li>Imagen legible de la cédula de ciudadanía.</li>
+              <li>Formato de autorización de tratamiento de datos.</li>
+              <li>Correo electrónico y número de contacto.</li>
+            </ul>
+          </div>
+          <!-- Slide 4: Envío de documentos -->
+          <div class="requisitos-slide">
+            <h3>✅ Envío de documentos</h3>
+            <p>Envía los archivos a <strong>tucasacp@gmail.com</strong> con el asunto: <em>"Nombre Solicitante – Nombre Inmueble"</em>.</p>
+            <p>En el correo, incluye: datos de arrendatarios y deudores, ID de adultos que habitarán el inmueble, y cantidad/especie de mascotas.</p>
+            <p>El estudio dura dos días hábiles. ¡Gracias por confiar en nosotros!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox / Visor de imágenes (para el equipo) -->
+    <div id="lightbox" class="lightbox" aria-hidden="true" tabindex="-1">
+      <button class="lb-close" aria-label="Cerrar (Esc)">&times;</button>
+      <button class="lb-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+
+      <div class="lb-content" role="dialog" aria-modal="true">
+        <img id="lb-image" src="" alt="">
+      </div>
+
+      <button class="lb-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+
+      <div class="lb-thumbs" id="lb-thumbs" aria-hidden="false"></div>
     </div>
-  </section>
 
-  <!-- Requisitos (reemplaza la sección Contacto) -->
-  <section id="requisitos" class="contacto">
-    <h2>Requisitos</h2>
+    <!-- Footer -->
+    <footer>
+      <div class="footer-contact">
+        <p class="footer-phone"><a href="tel:3142902041"><i class="fas fa-phone"></i> 314 290 2041</a></p>
+        <p class="footer-email"><a href="mailto:tucasacp@gmail.com"><i class="fas fa-envelope"></i> tucasacp@gmail.com</a></p>
+        <p class="footer-role">GESTORES INMOBILIARIOS</p>
+      </div>
 
-    <div class="requisitos-content" style="white-space:pre-wrap; text-align:justify;">
-<div class="requisitos">
-✅ Para iniciar el proceso de arrendamiento de tu nuevo espacio, te solicitamos aportar los siguientes documentos según tu ocupación:
-<br> 
-🔹<strong>Si eres Empleado:</strong> 
-1. Certificación laboral vigente al mes de la solicitud. 
-2. Desprendibles de nómina de los últimos 
-3. meses donde se certifiquen tus ingresos. 
-4. Correo electrónico y número de contacto. 
-5. Imagen legible de tu cédula de ciudadanía. 
-6. Formato de autorización de tratamiento de datos. 
-<br>
-🔹<strong> Si eres Independiente:</strong> 
-1. Certificado de Cámara de Comercio o RUT vigente al mes de la solicitud. 
-2. Extractos bancarios de los últimos 
-3. meses donde se certifiquen tus ingresos. 
-4. Correo electrónico y número de contacto. 
-5. Imagen legible de tu cédula de ciudadanía. 
-6. Formato de autorización tratamiento de datos. 
-<br>
-🔹<strong> Para tu Deudor Solidario:</strong> 
-1. Si el deudor solidario respalda la obligación con un inmueble, deberá remitir el certificado de tradición y libertad vigente al mes de la solicitud. Nota: El inmueble no debe contar con hipotecas, embargos o usufructos.
-2. Si el deudor solidario es solvente, deberá aportar los documentos correspondientes como asalariado o independiente (según corresponda). 
-3. Imagen legible de la cédula de ciudadanía del deudor solidario. 
-4. Formato de autorización de tratamiento de datos. 
-5. Correo electrónico y número de contacto. 
-6. El deudor solvente debe acreditar ingresos equivalentes al doble del canon de arrendamiento del inmueble 
-<br>
-🔹<strong> Envío de documentos: </strong>
-Los documentos solicitados deben enviarse como archivos adjuntos al correo electrónico: <strong>tucasacp@gmail.com</strong>. Por favor, en el asunto del correo incluye el nombre del solicitante junto con el nombre del conjunto residencial o barrio del inmueble de interés. Por ejemplo: Pedro Pérez – inmueble ubicado en el conjunto residencial Plaza 2. 
-En el contenido del correo, por favor indicar la siguiente información: 
-1. Nombres completos, números de teléfono y correos electrónicos de los arrendatarios y de los deudores solidarios. 
-2. Nombres y números de identificación de los adultos que habitarán el inmueble. 
-3. En caso de tener mascotas, indicar la cantidad y la especie (perro, gato, ave, etc.). 
-<br>
-✅ Agradecemos tu atención y colaboración en el envío de estos documentos. Recuerda que el estudio tiene una duración de dos días hábiles. Si tienes alguna duda o necesitas asistencia durante el proceso, no dudes en contactarnos. Estamos aquí para acompañarte y brindarte la mejor experiencia en el arrendamiento de tu nuevo espacio. 
-<br>
-<strong>¡Gracias por confiar en nosotros! </strong>
+      <p>© 2025 Inmobiliaria Tu Casa CP. Todos los derechos reservados.</p>
 
+      <div class="social">
+        <a href="https://wa.me/3142902041" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/tu-pagina" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/tu-perfil" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </footer>
 
-</div>
-  </div>
-  </section>
-
-  <!-- Lightbox / Visor de imágenes (para el equipo) -->
-  <div id="lightbox" class="lightbox" aria-hidden="true" tabindex="-1">
-    <button class="lb-close" aria-label="Cerrar (Esc)">&times;</button>
-    <button class="lb-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
-
-    <div class="lb-content" role="dialog" aria-modal="true">
-      <img id="lb-image" src="" alt="">
+    <!-- Iconos sociales flotantes -->
+    <div class="social-floating" aria-hidden="false">
+      <a href="https://wa.me/34600111222?text=Hola%20quiero%20más%20info" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+      </a>
+      <a href="https://www.facebook.com/tu-pagina" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+      </a>
+      <a href="https://www.instagram.com/tu-perfil" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram" aria-hidden="true"></i>
+      </a>
+      <a href="https://www.tiktok.com/@tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+        <i class="fab fa-tiktok" aria-hidden="true"></i>
+      </a>
     </div>
 
-    <button class="lb-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
-
-    <div class="lb-thumbs" id="lb-thumbs" aria-hidden="false"></div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-contact">
-      <p class="footer-phone"><a href="tel:3142902041"><i class="fas fa-phone"></i> 314 290 2041</a></p>
-      <p class="footer-email"><a href="mailto:tucasacp@gmail.com"><i class="fas fa-envelope"></i> tucasacp@gmail.com</a></p>
-      <p class="footer-role">GESTORES INMOBILIARIOS</p>
-    </div>
-
-    <p>© 2025 Inmobiliaria Tu Casa CP. Todos los derechos reservados.</p>
-
-    <div class="social">
-      <a href="https://wa.me/3142902041" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://www.facebook.com/tu-pagina" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.instagram.com/tu-perfil" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.tiktok.com/@tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-    </div>
-  </footer>
-
-  <!-- Iconos sociales flotantes -->
-  <div class="social-floating" aria-hidden="false">
-    <a href="https://wa.me/34600111222?text=Hola%20quiero%20más%20info" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-      <i class="fab fa-whatsapp" aria-hidden="true"></i>
-    </a>
-    <a href="https://www.facebook.com/tu-pagina" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-      <i class="fab fa-facebook-f" aria-hidden="true"></i>
-    </a>
-    <a href="https://www.instagram.com/tu-perfil" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-      <i class="fab fa-instagram" aria-hidden="true"></i>
-    </a>
-    <a href="https://www.tiktok.com/@tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-      <i class="fab fa-tiktok" aria-hidden="true"></i>
-    </a>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+    <script src="script.js"></script>
+  </body>
+  </html>
