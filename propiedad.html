@@ -14,12 +14,18 @@
     <!-- logo a la izquierda -->
     <img src="img/logo banner.png" alt="Logo" class="header-left-logo">
 
-    <div class="logo">Inmobiliaria TU CASA CP </div>
+    <div class="logo">Inmobiliaria TU CASA CP</div>
 
     <nav class="nav" id="nav-menu">
       <ul>
         <li><a href="index.html#inicio">Inicio</a></li>
-        <li><a href="index.html#propiedades">Propiedades</a></li>
+        <li class="dropdown">
+          <a href="#">Servicios <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html#propiedades">Propiedades en Arriendo</a></li>
+            <li><a href="index.html#confiar-inmueble">Confíanos tu Inmueble</a></li>
+          </ul>
+        </li>
         <li><a href="index.html#nosotros">Nosotros</a></li>
         <li><a href="index.html#requisitos">Requisitos</a></li>
       </ul>
@@ -63,6 +69,18 @@
         </aside>
       </div>
     </section>
+
+    <!-- Inmuebles Relacionados -->
+    <section id="related-properties" class="propiedades">
+      <h2>Inmuebles Relacionados</h2>
+      <div class="carousel-wrapper">
+        <button class="carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <div class="cards" id="related-cards-container">
+          <!-- Las tarjetas se generarán aquí dinámicamente con JavaScript -->
+        </div>
+        <button class="carousel-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
   </main>
 
   <!-- Lightbox / Visor de imágenes -->
@@ -92,7 +110,7 @@
     <div class="social">
       <a href="https://wa.me/3142902041" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
       <a href="https://www.facebook.com/tu-pagina" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.instagram.com/tucasacp?igsh=MTU5dnJzY2k1ZDhpMg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.instagram.com/tu-perfil" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="https://www.tiktok.com/@tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
     </div>
   </footer>
@@ -105,7 +123,7 @@
     <a href="https://www.facebook.com/tu-pagina" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
       <i class="fab fa-facebook-f" aria-hidden="true"></i>
     </a>
-    <a href="https://www.instagram.com/tucasacp?igsh=MTU5dnJzY2k1ZDhpMg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+    <a href="https://www.instagram.com/tu-perfil" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
       <i class="fab fa-instagram" aria-hidden="true"></i>
     </a>
     <a href="https://www.tiktok.com/@tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
@@ -115,6 +133,4 @@
 
   <script src="script.js"></script>
 </body>
-
 </html>
-
