@@ -19,6 +19,14 @@ header {
   transition: background .25s ease, padding .2s ease;
 }
 
+/* Nuevo estilo para el enlace del logo */
+.logo-link {
+  text-decoration: none;
+  color: inherit; /* Hereda el color del header (#fff) */
+  display: flex;
+  align-items: center;
+}
+
 header .logo{font-size:1.5rem;font-weight:700}
 header nav ul{display:flex;list-style:none}
 header nav ul li{margin-left:20px}
@@ -366,7 +374,27 @@ footer > p{
 }
 
 /* Responsive */
-@media (max-width:900px){.gallery-and-info{grid-template-columns:1fr}.info{order:2}.gallery{order:1}}
+@media (max-width:900px){
+  .gallery-and-info{grid-template-columns:1fr}
+  .info{order:2}
+  .gallery{
+    order:1;
+    /* Convertir a carrusel en móvil */
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 5px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+  }
+  .gallery::-webkit-scrollbar { display: none; } /* Chrome, Safari */
+  .gallery img {
+    width: auto; /* Ancho automático para el scroll */
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+}
 @media (max-width:768px){
   header nav ul{
     display: none;
@@ -400,30 +428,21 @@ footer > p{
   .header-left-logo { max-height: 44px; }
 }
 
-/* Estilos para la sección Requisitos */
+/* --- Estilos para la sección Requisitos --- */
 section#requisitos.contacto {
   background: #ffffff;
-  padding: 50px 70px;
+  padding: 50px 20px; /* Adjusted padding */
   text-align: center;
 }
 
-/* Contenido interno centrado pero con ancho controlado */
-.requisitos-content,
-.requisitos {
-  max-width: 1000px;
+/* En escritorio, se muestra como una cuadrícula de tarjetas */
+.requisitos-slides {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
   margin: 0 auto;
-  text-align: left; /* conserva la justificación interna si antes la tenías */
-  white-space: pre-wrap;
-}
-/* Ajustes en móvil */
-@media (max-width: 700px) {
-  section#requisitos.contacto {
-    padding: 30px 36px;
-  }
-  .requisitos-content,
-  .requisitos {
-    padding: 0 6px;
-  }
+  text-align: left;
 }
 
 /* Estilos para la página de todas las propiedades */
@@ -451,4 +470,38 @@ section#requisitos.contacto {
   margin-top: 50px;
   padding-top: 30px;
   border-top: 1px solid #eee;
+}
+
+.requisitos-slide {
+  background: #f9f9f9;
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+.requisitos-slide h3 { color: #003366; margin-bottom: 15px; font-size: 1.3rem; }
+.requisitos-slide p, .requisitos-slide ul { margin-bottom: 15px; line-height: 1.7; color: #555; }
+.requisitos-slide ul { padding-left: 20px; }
+.requisitos-slide li { margin-bottom: 8px; }
+
+@media (max-width: 768px) {
+  /* --- Media Queries para Requisitos en móvil --- */
+  section#requisitos.contacto {
+    padding: 30px 0; /* Ajustar padding para el carrusel */
+  }
+
+  .requisitos-slides {
+    /* Convertir de grid a carrusel flex */
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 10px 20px 20px 20px;
+    grid-template-columns: none; /* Resetear grid */
+  }
+
+  .requisitos-slide {
+    flex: 0 0 85%; /* Cada slide ocupa el 85% del contenedor */
+    scroll-snap-align: center; /* Centrar el slide al hacer snap */
+  }
 }
