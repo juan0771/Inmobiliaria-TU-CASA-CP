@@ -77,7 +77,7 @@ header .logo {
 
 /* Propiedades (index) */
 .propiedades{padding:50px 20px;text-align:center}
-.propiedades h2{margin-bottom:30px;font-size:2rem; padding: 0 20px;}
+.propiedades h2{margin-bottom:30px;font-size:1.5rem; padding: 0 20px;}
 .cards{
   display: flex;
   gap: 20px;
@@ -153,7 +153,7 @@ header .logo {
   background: rgba(0, 51, 102, 0.8);
   z-index: -1;
 }
-.nosotros h2{margin-bottom:25px; font-size: 2.2rem;}
+.nosotros h2{margin-bottom:25px; font-size: 1.5rem;}
 .nosotros-content {
   display: flex;
   gap: 30px;
@@ -186,7 +186,7 @@ header .logo {
 }
 .team h2 {
   margin-bottom: 30px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding: 0 20px; /* Add padding back to the title */
 }
 
@@ -285,8 +285,29 @@ header .logo {
   border-radius: 0 0 8px 8px;
 }
 
-.dropdown:hover .dropdown-menu {
-  display: block;
+/* Transición suave para el submenú */
+.dropdown .dropdown-menu {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s cubic-bezier(.4,0,.2,1), opacity 0.25s;
+  display: block; /* Importante: siempre block para que la transición funcione */
+  pointer-events: none;
+}
+
+.dropdown.open .dropdown-menu {
+  max-height: 400px; /* Ajusta según el contenido */
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* En desktop, sigue mostrando el menú al hacer hover */
+@media (min-width: 769px) {
+  .dropdown:hover .dropdown-menu {
+    max-height: 400px;
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 .dropdown-menu li a {
@@ -383,7 +404,7 @@ footer > p{
 
 /* Página de detalle */
 .property{padding:20px;max-width:1100px;margin:0 auto 60px}
-.property #property-detail h1{font-size:2rem;margin-bottom:6px;color:#003366}
+.property #property-detail h1{font-size:1.5rem;margin-bottom:6px;color:#003366}
 .muted{color:#666;margin-bottom:12px}
 .gallery-and-info{display:grid;grid-template-columns:1fr 380px;gap:20px;align-items:start}
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
@@ -468,15 +489,19 @@ footer > p{
 
   
 }
-@media (max-width:768px){
+@media (max-width:900px){
   header nav ul{
     display: none;
     flex-direction: column;
     position: absolute;
     top: 100%;
-    left: 0;
-    width: 100%;
-    background: #003366;
+    right: 0;
+    width: auto;
+    /*background: #003366;*/
+    background-image: url("./img/banner menu.png");
+    background-size: cover;
+    padding: 10px;
+    border-radius: 0px 0px 0px 5px;
   }
   header nav.show ul { display: flex; }
   .menu-toggle{display:block}
@@ -514,7 +539,7 @@ footer > p{
   }
 }
 @media (max-width:700px){.social-floating{right:10px;gap:8px}.social-floating a{width:42px;height:42px;font-size:18px}}
-@media (max-width:700px){header .logo{font-size:1.3rem;font-weight:700}}
+@media (max-width:700px){header .logo{font-size:1.3rem;font-weight:600}}
 @media (max-width:768px){
   header { padding: 12px 16px; }
   .hero { padding-top: 72px; }
@@ -595,5 +620,37 @@ section#requisitos.contacto {
   .requisitos-slide {
     flex: 0 0 85%; /* Cada slide ocupa el 85% del contenedor */
     scroll-snap-align: center; /* Centrar el slide al hacer snap */
+  }
+}
+
+/* Animación para el menú nav en mobile */
+.nav {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s cubic-bezier(.4,0,.2,1), opacity 0.3s;
+}
+
+/* Por defecto, nav visible en escritorio */
+.nav {
+  display: block;
+  max-height: none;
+  opacity: 1;
+  overflow: visible;
+  transition: none;
+}
+
+/* En móvil, ocultar nav y animar con .show */
+@media (max-width: 900px) {
+  .nav {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(.4,0,.2,1), opacity 0.3s;
+    display: block;
+  }
+  .nav.show {
+    max-height: 500px; /* Ajusta según el contenido de tu menú */
+    opacity: 1;
   }
 }
