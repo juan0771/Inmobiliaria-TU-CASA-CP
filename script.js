@@ -2,32 +2,102 @@
 
 const properties = {
   "1": {
-    title: "Arriendo Casa en Normandia",
-    address: "Normandia, Engativa / Carrera 71A # 53-65",
-    desc: "Amplia casa de 3 habitaciones con jardín privado.",
-    price: "$2.000.000",
-    features: ["3 habitaciones","2 baños","Jardín","Garaje"],
-    images: [ "img/apto1/apto1.jpg", "img/apto1/apto2.jpg", "img/apto1/apto3.jpg", "img/apto1/apto1.jpg" ],
-    lat: 4.676, lng: -74.110, whatsapp: "3142902041"
+    title: "🏡Apartamento en venta Madrid Cundinamarca",
+    address: "Calle 24 # 2 89",
+    desc: "Apartamento en Madrid, Cundinamarca. Cuenta con 64 m², 3 habitaciones, 2 baños, sala-comedor, espacio para estudio y cocina. 📍Ubicado en el Conjunto Residencial Finca SM 10 A, tercer piso.",
+    price: "💰$147.000.000",
+    features: [
+      "🛏 Habitaciones: 3",
+      "🚽 Baños: 2",
+      "📐 Area Construida: 64 m²",
+      "🛋 Sala Comedor y espacio para un estudio ",
+      "🍳 Cocina",
+      "🏣 Piso 3"
+    ],
+    images: [
+      "img/apto2/1.jpeg",
+      "img/apto2/2.jpeg",
+      "img/apto2/3.jpeg",
+      "img/apto2/4.jpeg",
+      "img/apto2/5.jpeg",
+      "img/apto2/6.jpeg",
+      "img/apto2/7.jpeg",
+      "img/apto2/8.jpeg",
+      "img/apto2/9.jpeg",
+      "img/apto2/10.jpeg",
+    ],
+    lat: 4.676,
+    lng: -74.110,
+    whatsapp: "3193490747",
+    shortDesc: "3 habitaciones, 2 baños, 64 m². ¡Listo para mudarte!"
   },
   "2": {
-    title:"Arriendo Apto en Bochica 3",
-    address:"Bochica 3, Bogotá",
-    desc:"Ubicación céntrica con acceso a transporte y comercios.",
+    title: "Arriendo Apto en Bochica 3",
+    address: "Bochica 3, Bogotá",
+    desc: "Ubicación céntrica con acceso a transporte y comercios.",
     price: "$2.000.000",
-    features:["2 habitaciones","1 baño","Terraza"],
-    images:["img/apto1/apto2.jpg","https://picsum.photos/800/500?random=22","https://picsum.photos/800/500?random=23"],
-    lat:41.385064,lng:2.173404, whatsapp:"3142902041"
+    features: [
+      "2 habitaciones",
+      "1 baño",
+      "Terraza"
+    ],
+    images: [
+      "img/apto1/apto2.jpg",
+      "img/apto1/apto1.jpg",
+      "img/apto1/apto3.jpg"
+    ],
+    lat: 41.385064,
+    lng: 2.173404,
+    whatsapp: "3142902041",
+    shortDesc: "Apto 2 hab, terraza, excelente ubicación en Bogotá."
   },
   "3": {
-    title:"Casa de Lujo",
-    address:"Urbanización Elite, Marbella",
-    desc:"Diseño exclusivo, piscina y acabados de primera.",
-    price: "Consultar precio",
-    features:["5 habitaciones","Piscina","Spa","Garaje"],
-    images:["img/apto1/apto3.jpg","https://picsum.photos/800/500?random=32","https://picsum.photos/800/500?random=33"],
-    lat:36.510071,lng:-4.882477, whatsapp:"3142902041"
-  }};
+    title: "Venta de Casa hermosa y de lujo",
+    address: "Urbanización Elite, Marbella",
+    desc: "Diseño exclusivo, piscina y acabados de primera.",
+    price: "💰$170.000.000",
+    features: [
+      "5 habitaciones",
+      "Piscina",
+      "Spa",
+      "Garaje"
+    ],
+    images: [
+      "img/apto1/apto3.jpg",
+      "img/apto1/apto2.jpg",
+      "img/apto1/apto1.jpg"
+    ],
+    lat: 36.510071,
+    lng: -4.882477,
+    whatsapp: "3142902041",
+    shortDesc: "Casa de lujo con piscina y spa en Marbella." 
+  },
+  "4": {
+    title: "🏡Apartamento en venta Madrid Cundinamarca",
+    address: "Normandia, Engativa / Carrera 71A # 53-65",
+    desc: "Apartamento en Madrid, Cundinamarca. Cuenta con 64 m², 3 habitaciones, 2 baños, sala-comedor, espacio para estudio y cocina. 📍Ubicado en el Conjunto Residencial Finca SM 10 A, tercer piso.",
+    price: "💰$110.000.000",
+    features: [
+      "🛏 Habitaciones: 3",
+      "🚽 Baños: 2",
+      "📐 Area Construida: 64 m²",
+      "🛋 Sala Comedor y espacio para un estudio ",
+      "🍳 Cocina",
+      "🏣 Piso 3"
+    ],
+    images: [
+      
+      "img/apto2/2.jpeg",
+      "img/apto2/3.jpeg",
+      "img/apto2/1.jpeg"
+    ],
+    lat: 4.676,
+    lng: -74.110,
+    whatsapp: "3193490747",
+    shortDesc: "3 hab, 2 baños, 64 m² en Madrid. ¡Listo para mudarte!"
+  },
+
+};
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -115,14 +185,13 @@ document.querySelectorAll("#nav-menu a").forEach(link => {
   function createPropertyCardHTML(id, prop) {
     const imageUrl = prop.images && prop.images.length > 0 ? prop.images[0] : 'https://picsum.photos/400/250';
     const priceHTML = prop.price ? `<p><strong>${prop.price}</strong></p>` : '<p><strong>Consultar precio</strong></p>';
-    // Hide nav buttons if there's only one image
     const navButtonsHTML = prop.images && prop.images.length > 1 ? `
       <button class="card-nav-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
       <button class="card-nav-btn next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
     ` : '';
-
-    // Store all image URLs in a data attribute, properly stringified
     const imagesData = JSON.stringify(prop.images || []);
+    // Usar shortDesc si existe, si no, usar desc
+    const cardDesc = prop.shortDesc || prop.desc;
 
     return `
       <div class="card" data-images='${imagesData}'>
@@ -131,7 +200,7 @@ document.querySelectorAll("#nav-menu a").forEach(link => {
           ${navButtonsHTML}
         </div>
         <h3>${prop.title}</h3>
-        <p>${prop.desc}</p>
+        <p>${cardDesc}</p>
         ${priceHTML}
         <a class="btn" href="propiedad.html?id=${id}">Más información</a>
       </div>
